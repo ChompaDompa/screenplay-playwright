@@ -2,7 +2,7 @@ import type { Actor, Activity } from '../actors/Actor';
 import { BrowseTheWeb } from '../abilities/BrowseTheWeb';
 
 /**
- * Navigates the browser to `url`. Generic and domain-agnostic.
+ * Navega el navegador hacia `url`. Genérica y agnóstica al dominio.
  */
 export class Navigate implements Activity {
   private constructor(private readonly url: string) {}

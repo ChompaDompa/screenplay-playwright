@@ -3,8 +3,8 @@ import type { Question } from './Question';
 import { BrowseTheWeb } from '../abilities/BrowseTheWeb';
 
 /**
- * Reads whether the element matched by `selector` is currently visible. Generic
- * and domain-agnostic, like the Interactions.
+ * Lee si el elemento que coincide con `selector` está actualmente visible. Genérica
+ * y agnóstica al dominio, igual que las Interactions.
  */
 export class Visibility implements Question<boolean> {
   private constructor(private readonly selector: string) {}

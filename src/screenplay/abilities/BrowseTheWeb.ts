@@ -2,10 +2,10 @@ import type { Page } from '@playwright/test';
 import { Ability } from './Ability';
 
 /**
- * Wraps Playwright's Page object. This is the ONLY place in the framework that holds
- * a direct reference to Playwright's Page — Interactions pull it from here via
- * `actor.withAbilityTo(BrowseTheWeb).currentPage()`, so Tasks/Questions never touch
- * Playwright directly.
+ * Envuelve el objeto Page de Playwright. Este es el ÚNICO lugar del framework que mantiene
+ * una referencia directa al Page de Playwright — las Interactions la obtienen desde aquí vía
+ * `actor.withAbilityTo(BrowseTheWeb).currentPage()`, de modo que Tasks/Questions nunca tocan
+ * Playwright directamente.
  */
 export class BrowseTheWeb extends Ability {
   private constructor(private readonly page: Page) {

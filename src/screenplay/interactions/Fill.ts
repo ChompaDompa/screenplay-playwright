@@ -2,7 +2,7 @@ import type { Actor, Activity } from '../actors/Actor';
 import { BrowseTheWeb } from '../abilities/BrowseTheWeb';
 
 /**
- * Fills the element matched by `selector` with `value`. Generic and domain-agnostic.
+ * Rellena el elemento que coincide con `selector` con `value`. Genérica y agnóstica al dominio.
  */
 export class Fill implements Activity {
   private constructor(

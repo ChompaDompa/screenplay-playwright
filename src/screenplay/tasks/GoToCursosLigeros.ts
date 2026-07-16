@@ -1,14 +1,18 @@
 import type { Actor, Activity } from '../actors/Actor';
 import { Click } from '../interactions/Click';
 import { Hover } from '../interactions/Hover';
-import { WaitForLoad } from '../interactions/WaitForLoad';
+import { WaitForVisible } from '../interactions/WaitForVisible';
 import { MainMenu } from '../ui/MainMenu';
+import { CursosLigerosPage } from '../ui/CursosLigerosPage';
 
 /**
- * Navigates from anywhere inside Q10 to the "Cursos ligeros" listing:
- * Académico → Educación virtual → Cursos ligeros. This is the entry point
- * for reaching a specific virtual course before creating resources inside it.
- * "Educación virtual" is a mega-menu category that expands on hover, not click.
+ * Navega desde cualquier lugar dentro de Q10 hasta el listado de "Cursos ligeros":
+ * Académico → Educación virtual → Cursos ligeros. Este es el punto de entrada
+ * para llegar a un curso virtual específico antes de crear recursos dentro de él.
+ * "Educación virtual" es una categoría de mega-menú que se expande con hover, no con clic.
+ *
+ * El clic final dispara una navegación real; WaitForLoad podría resolver antes de que
+ * el listado termine de cargar, así que se espera a un elemento propio de esa pantalla.
  */
 export class GoToCursosLigeros implements Activity {
   private constructor() {}
@@ -22,7 +26,7 @@ export class GoToCursosLigeros implements Activity {
       Click.on(MainMenu.academicMenuToggle),
       Hover.over(MainMenu.educacionVirtualCategory),
       Click.on(MainMenu.cursosLigerosLink),
-      WaitForLoad.toFinish(),
+      WaitForVisible.of(CursosLigerosPage.createCourseButton),
     );
   }
 }

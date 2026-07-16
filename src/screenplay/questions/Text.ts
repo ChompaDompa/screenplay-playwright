@@ -3,8 +3,8 @@ import type { Question } from './Question';
 import { BrowseTheWeb } from '../abilities/BrowseTheWeb';
 
 /**
- * Reads the visible text of the element matched by `selector`. Generic and
- * domain-agnostic, like the Interactions — the domain lives in the caller (a Task test).
+ * Lee el texto visible del elemento que coincide con `selector`. Genérica y
+ * agnóstica al dominio, igual que las Interactions — el dominio vive en quien la invoca (una Task o un test).
  */
 export class Text implements Question<string> {
   private constructor(private readonly selector: string) {}

@@ -2,9 +2,9 @@ import type { Actor, Activity } from '../actors/Actor';
 import { BrowseTheWeb } from '../abilities/BrowseTheWeb';
 
 /**
- * Waits for the current page to finish loading. Generic and domain-agnostic —
- * used after an interaction that triggers a real navigation (e.g. clicking a link),
- * since Click/Hover don't wait for the resulting page to be ready on their own.
+ * Espera a que la página actual termine de cargar. Genérica y agnóstica al dominio —
+ * se usa después de una interacción que dispara una navegación real (p. ej. hacer clic
+ * en un link), ya que Click/Hover no esperan por su cuenta a que la página resultante esté lista.
  */
 export class WaitForLoad implements Activity {
   private constructor() {}

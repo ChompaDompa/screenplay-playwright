@@ -2,23 +2,23 @@ import type { Ability } from '../abilities/Ability';
 import type { Question } from '../questions/Question';
 
 /**
- * Contract for anything an Actor can perform: Interactions and Tasks both implement this.
+ * Contrato para todo lo que un Actor puede realizar: Interactions y Tasks implementan esto.
  */
 export interface Activity {
   performAs(actor: Actor): Promise<void>;
 }
 
 /**
- * Reference to an Ability's class, used as a lookup key. Deliberately has no construct
- * signature: Abilities like BrowseTheWeb expose private constructors behind a static
- * factory, and a `new (...) => T` signature would reject those structurally.
+ * Referencia a la clase de una Ability, usada como llave de búsqueda. Deliberadamente no tiene
+ * firma de construcción: Abilities como BrowseTheWeb exponen constructores privados detrás de un
+ * factory estático, y una firma `new (...) => T` las rechazaría estructuralmente.
  */
 type AbilityClass<T extends Ability> = Function & { readonly prototype: T };
 
 /**
- * The Actor is the single entry point that performs Activities (attemptsTo) and reads
- * state via Questions (asks). It knows nothing about Playwright or the domain itself —
- * that knowledge lives in its Abilities, Tasks, Interactions and Questions.
+ * El Actor es el único punto de entrada que ejecuta Activities (attemptsTo) y lee
+ * estado vía Questions (asks). No sabe nada de Playwright ni del dominio en sí —
+ * ese conocimiento vive en sus Abilities, Tasks, Interactions y Questions.
  */
 export class Actor {
   private readonly abilities = new Map<AbilityClass<Ability>, Ability>();

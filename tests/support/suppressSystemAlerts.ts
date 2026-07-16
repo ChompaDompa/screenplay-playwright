@@ -1,10 +1,10 @@
 import type { Page } from '@playwright/test';
 
 /**
- * This Q10 tenant periodically shows a plan-limit nag (SweetAlert) that reappears
- * every few seconds and intercepts clicks anywhere on the page, regardless of what
- * flow is under test. Neutralizing it via injected CSS (re-applied on every
- * navigation through addInitScript) is far more reliable than retrying around it.
+ * Este tenant de Q10 muestra periódicamente un aviso de límite de plan (SweetAlert) que
+ * reaparece cada pocos segundos e intercepta clics en cualquier parte de la página, sin
+ * importar qué flujo se esté probando. Neutralizarlo con CSS inyectado (reaplicado en cada
+ * navegación mediante addInitScript) es mucho más confiable que reintentar alrededor de él.
  */
 export async function suppressSystemAlerts(page: Page): Promise<void> {
   await page.addInitScript(() => {

@@ -1,5 +1,5 @@
 /**
- * Marker base class for every Ability (e.g. BrowseTheWeb).
- * Lets Actor store heterogeneous abilities in a single typed map, keyed by class.
+ * Clase base marcadora para cada Ability (p. ej. BrowseTheWeb).
+ * Permite que Actor almacene abilities heterogéneas en un único mapa tipado, indexado por clase.
  */
 export abstract class Ability {}
